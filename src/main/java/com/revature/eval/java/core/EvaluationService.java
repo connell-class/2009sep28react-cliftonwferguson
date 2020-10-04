@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -226,8 +227,27 @@ public class EvaluationService {
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
+		Map<String, Integer> countByWord = new HashMap<>();
+		countByWord.
 		return null;
 	}
+	
+	public Map<String, Integer> wordCount(String string) {      
+		  // Java Generics
+	      // Map requires two type parameters.
+	      // Key data type is String, key data type is Integer
+	      Map<String, Integer> countByWord = new HashMap<>();      
+	      String[] words = string.split("\\s");
+	      for (String word : words) {
+	        boolean hasWord = countByWord.containsKey(word);
+	        if (hasWord) {
+	          
+	        } else {
+	          
+	        }
+	      }
+		  return countByWord;
+		}
 
 	/**
 	 * 7. Implement a binary search algorithm.
