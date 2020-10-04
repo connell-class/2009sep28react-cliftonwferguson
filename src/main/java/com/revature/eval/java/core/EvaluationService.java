@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		char[] reversed = new char[string.length()];
-		for (int i = reversed.length - 1, j=0; i >= 0; i--, j++) {
+		for (int i = reversed.length - 1, j = 0; i >= 0; i--, j++) {
 			reversed[j] = string.charAt(i);
 		}
 		return new String(reversed);
@@ -31,7 +32,26 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		// return null;
+
+		// I need a loop that will identify a charicter after a "" then pull that down
+		// into a new array.
+		// I like an apple
+		// 1 - I will iterate over each character.
+		// 2- I will try to identify the character after the " ".
+		// 3 - I will use the pop method, to get that character,
+		// 4 - I will push that to a new array
+		//
+		String[] words = phrase.split("\\s");
+		System.out.println(Arrays.asList(words)); /// [ word1, word2 ....]
+		StringBuilder buffer = new StringBuilder();
+		for (String word : words) {
+			// System.out.println(word);
+			String letter = word.substring(0, 1);
+			System.out.println(letter);
+			buffer.append(letter);
+		}
+		return buffer.toString().toUpperCase();
 	}
 
 	/**
@@ -85,17 +105,40 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
-			return false;
+
+			// IF else statement
+			// If all three sides are equal, than return equilateral
+			// if (sideOne == sideTwo == sideThree) return equilateral else return false
+
+			if (sideOne == sideTwo && sideTwo == sideThree) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
-			return false;
+			// if else statement
+			// if (sideONe == sideTwo || sideOne == sideThree || sideTwo == sidethree )
+			// return true, else return false
+			if (sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			return false;
+			// if else statement
+			// if ( sideONe != sideTwo && sideTwo != sideThree && sideOne != sideThree)
+			// return true, else return false)
+			if (sideOne != sideTwo && sideTwo != sideThree && sideOne != sideThree) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 	}
@@ -117,6 +160,7 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
+
 		return 0;
 	}
 
@@ -153,7 +197,22 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+        String nonDigitValidChars = "() -+.";
+		StringBuilder buffer = new StringBuilder();
+		char[] newString = string.toCharArray();
+		for (char digit : newString) {
+			if (digit >= '0' && digit <= '9') {
+				buffer.append(digit);
+			} else if (!nonDigitValidChars.contains("" + digit)) {
+				throw new IllegalArgumentException();
+			}
+		}
+		int phoneNumberLength = buffer.length();
+		if (phoneNumberLength > 11) {
+			throw new IllegalArgumentException();
+		}
+		System.out.print(buffer);
+		return buffer.toString();
 	}
 
 	/**
