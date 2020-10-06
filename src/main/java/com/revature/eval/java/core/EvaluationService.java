@@ -355,6 +355,7 @@ public class EvaluationService {
 		
 		return string.substring(index) + 
 				string.substring(0, index) + "ay";
+		// possibly set a test case to move the u if the last thing moved was a q?
 	}
 
 	/**
@@ -382,7 +383,7 @@ public class EvaluationService {
 		   result += Math.pow(remainder, 3);
 		   input /= 10;
 	   }
-	    if(result == number)
+	    
 	    	return true;
 	    }
 
@@ -397,15 +398,25 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// Print the number of 2s that divide n
-		while (n % 2 == 0) {
+		// Print the number of 2s that divide l
+		while ( l % 2 == 0) {
 			System.out.print(2 + " ");
-		   n /= 2;
+		   l /= 2;
 		}
 		
-		// n must be odd at this point. So we can
+		// l must be odd at this point. So we can
 		// skip one element (Note i = i +2)
-		for ()
+		for (int i = 3; i<= Math.sqrt(l); i += 2) {
+			//while i divides n, print i and divide l
+		while (l % i == 0) {
+			System.out.print(i + " ");
+			l /= i;
+		}
+		}
+		// This condition is to handle the case when 
+		// l is a prime number greater than 2
+		if (l > 2)
+			return Long l;
 	}
 
 	/**
