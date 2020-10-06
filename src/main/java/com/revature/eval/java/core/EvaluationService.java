@@ -159,6 +159,13 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
+	  /*
+	   * String one = "AEIOULNRST";
+	      if (one.contains(new String(c).toUpperCase())){
+
+	   */
+	  
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
 
@@ -324,9 +331,30 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
+	boolean isVowel(char c) {
+		return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || 
+			 	c == 'a' || c == 'e' || c == 'e' || c == 'i' || c == 'u');
+		
+	}
+	
 	public String toPigLatin(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		int len = string.length();
+		int index = -1;
+		for (int i = 0; i < len; i++) {
+			if (isVowel(string.charAt(i))) {
+				index = i;
+				break;
+			}
+		}
+		
+		if (index == -1)
+			return "-1";
+		
+		
+		return string.substring(index) + 
+				string.substring(0, index) + "ay";
 	}
 
 	/**
@@ -346,8 +374,17 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
-		return false;
-	}
+	   int number = input, remainder, result = 0;
+	   input = number;
+	   
+	   while (input != 0) {
+		   remainder = input % 10;
+		   result += Math.pow(remainder, 3);
+		   input /= 10;
+	   }
+	    if(result == number)
+	    	return true;
+	    }
 
 	/**
 	 * 10. Compute the prime factors of a given natural number.
@@ -360,8 +397,15 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		// Print the number of 2s that divide n
+		while (n % 2 == 0) {
+			System.out.print(2 + " ");
+		   n /= 2;
+		}
+		
+		// n must be odd at this point. So we can
+		// skip one element (Note i = i +2)
+		for ()
 	}
 
 	/**
