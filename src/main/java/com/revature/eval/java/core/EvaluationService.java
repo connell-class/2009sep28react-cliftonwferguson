@@ -107,10 +107,7 @@ public class EvaluationService {
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
 
-			// IF else statement
-			// If all three sides are equal, than return equilateral
-			// if (sideOne == sideTwo == sideThree) return equilateral else return false
-
+			
 			if (sideOne == sideTwo && sideTwo == sideThree) {
 				return true;
 			} else {
@@ -120,9 +117,7 @@ public class EvaluationService {
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
-			// if else statement
-			// if (sideONe == sideTwo || sideOne == sideThree || sideTwo == sidethree )
-			// return true, else return false
+			
 			if (sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
 				return true;
 			} else {
@@ -132,9 +127,7 @@ public class EvaluationService {
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			// if else statement
-			// if ( sideONe != sideTwo && sideTwo != sideThree && sideOne != sideThree)
-			// return true, else return false)
+			
 			if (sideOne != sideTwo && sideTwo != sideThree && sideOne != sideThree) {
 				return true;
 			} else {
@@ -339,6 +332,7 @@ public class EvaluationService {
 	}
 	
 	public String toPigLatin(String string) {
+		// the index of the first vowel is stored.
 		
 		int len = string.length();
 		int index = -1;
@@ -349,12 +343,19 @@ public class EvaluationService {
 			}
 		}
 		
+		//Pig Latin is possible only if vowels
+		// is present
 		if (index == -1)
 			return "-1";
 		
+		// Take all characters after index (including
+		// index). Append all characters which are before
+		// index.  Finally append "ay"
 		
+		// Currently this doesn't pass the last test.
 		return string.substring(index) + 
 				string.substring(0, index) + "ay";
+		// Advised to just hard code to pass the test
 		// possibly set a test case to move the u if the last thing moved was a q?
 	}
 
@@ -375,7 +376,8 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
-	   int number = input, remainder, result = 0;
+	    
+		int number = input, remainder, result = 0;
 	   input = number;
 	   
 	   while (input != 0) {
