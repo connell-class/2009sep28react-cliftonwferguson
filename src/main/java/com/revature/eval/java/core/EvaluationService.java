@@ -107,7 +107,6 @@ public class EvaluationService {
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
 
-			
 			if (sideOne == sideTwo && sideTwo == sideThree) {
 				return true;
 			} else {
@@ -117,7 +116,7 @@ public class EvaluationService {
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
-			
+
 			if (sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
 				return true;
 			} else {
@@ -127,7 +126,7 @@ public class EvaluationService {
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			
+
 			if (sideOne != sideTwo && sideTwo != sideThree && sideOne != sideThree) {
 				return true;
 			} else {
@@ -140,8 +139,15 @@ public class EvaluationService {
 	/**
 	 * 4. Given a word, compute the scrabble score for that word.
 	 * 
-	 * --Letter Values-- Letter Value A, E, I, O, U, L, N, R, S, T = 1; D, G = 2; B,
-	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examples
+	 * --Letter Values-- Letter Value
+	 *  A, E, I, O, U, L, N, R, S, T = 1; 
+	 * D, G = 2; 
+	 * B,C, M, P = 3;
+	 *  F, H, V, W, Y = 4; 
+	 * K = 5; 
+	 * J, X = 8; 
+	 * Q, Z = 10;
+	 *  Examples
 	 * "cabbage" should be scored as worth 14 points:
 	 * 
 	 * 3 points for C, 1 point for A, twice 3 points for B, twice 2 points for G, 1
@@ -152,17 +158,66 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+
 	
-	  /*
-	   * String one = "AEIOULNRST";
-	      if (one.contains(new String(c).toUpperCase())){
-
-	   */
-	  
+      
+       
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
+		/*
+       A, E, I, O, U, L, N, R, S, T = 1; 
 
-		return 0;
+		 */
+		
+		int score = 0;
+		String upperWord = string.toUpperCase();
+		for (int i = 0; i < upperWord.length(); i++) {
+			char calculatedLetter = upperWord.charAt(i);
+			switch (calculatedLetter) {
+			case 'A':
+			case 'E':
+			case 'I':
+			case 'O':
+			case 'U':
+			case 'L':
+			case 'N':
+			case 'R':
+			case 'S':
+			case 'T':
+				score +=1; break;
+			//* D, G = 2; 
+			case 'D':
+			case 'G':
+			    score +=2; break;
+			//  * B,C, M, P = 3;
+			case 'B':
+			case 'C':
+			case 'M':
+			case 'P':
+				score +=3; break;
+			//*  F, H, V, W, Y = 4; 
+			case 'F':
+			case 'H':
+			case 'V':
+			case 'W':
+			case 'Y':
+				score +=4; break;
+			//* K = 5; 
+			case 'k':
+				score +=5; break;
+			//* J, X = 8; 
+			case 'j':
+			case 'x':
+				score +=8; break;
+			//	 * Q, Z = 10;
+			case 'Q':
+			case 'Z':
+				score +=10; break;
+			}
+		}
+		
+		
+
+		return score;
 	}
 
 	/**
@@ -198,7 +253,7 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-        String nonDigitValidChars = "() -+.";
+		String nonDigitValidChars = "() -+.";
 		StringBuilder buffer = new StringBuilder();
 		char[] newString = string.toCharArray();
 		for (char digit : newString) {
@@ -231,23 +286,23 @@ public class EvaluationService {
 		countByWord.
 		return null;
 	}
-	
-	public Map<String, Integer> wordCount(String string) {      
-		  // Java Generics
-	      // Map requires two type parameters.
-	      // Key data type is String, key data type is Integer
-	      Map<String, Integer> countByWord = new HashMap<>();      
-	      String[] words = string.split("\\s");
-	      for (String word : words) {
-	        boolean hasWord = countByWord.containsKey(word);
-	        if (hasWord) {
-	          
-	        } else {
-	          
-	        }
-	      }
-		  return countByWord;
+
+	public Map<String, Integer> wordCount(String string) {
+		// Java Generics
+		// Map requires two type parameters.
+		// Key data type is String, key data type is Integer
+		Map<String, Integer> countByWord = new HashMap<>();
+		String[] words = string.split("\\s");
+		for (String word : words) {
+			boolean hasWord = countByWord.containsKey(word);
+			if (hasWord) {
+
+			} else {
+
+			}
 		}
+		return countByWord;
+	}
 
 	/**
 	 * 7. Implement a binary search algorithm.
@@ -306,37 +361,22 @@ public class EvaluationService {
 		}
 
 		/*
-		 *   Classmate's suggestion
+		 * Classmate's suggestion
 		 * 
-		 * class BinarySearch { 
-    // Returns index of x if it is present in arr[], 
-    // else return -1 
-    int binarySearch(int arr[], int x) 
-    { 
-        int l = 0, r = arr.length - 1; 
-        while (l <= r) { 
-            int m = l + (r - l) / 2; 
-  
-            // Check if x is present at mid 
-            if (arr[m] == x) 
-                return m; 
-  
-            // If x greater, ignore left half 
-            if (arr[m] < x) 
-                l = m + 1; 
-  
-            // If x is smaller, ignore right half 
-            else
-                r = m - 1; 
-        } 
-  
-        // if we reach here, then element was 
-        // not present 
-        return -1; 
-    } 
-
+		 * class BinarySearch { // Returns index of x if it is present in arr[], // else
+		 * return -1 int binarySearch(int arr[], int x) { int l = 0, r = arr.length - 1;
+		 * while (l <= r) { int m = l + (r - l) / 2;
+		 * 
+		 * // Check if x is present at mid if (arr[m] == x) return m;
+		 * 
+		 * // If x greater, ignore left half if (arr[m] < x) l = m + 1;
+		 * 
+		 * // If x is smaller, ignore right half else r = m - 1; }
+		 * 
+		 * // if we reach here, then element was // not present return -1; }
+		 * 
 		 */
-		
+
 	}
 
 	/**
@@ -356,16 +396,16 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	
+
 	boolean isVowel(char c) {
-		return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || 
-			 	c == 'a' || c == 'e' || c == 'e' || c == 'i' || c == 'u');
-		
+		return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a' || c == 'e' || c == 'e' || c == 'i'
+				|| c == 'u');
+
 	}
-	
+
 	public String toPigLatin(String string) {
 		// the index of the first vowel is stored.
-		
+
 		int len = string.length();
 		int index = -1;
 		for (int i = 0; i < len; i++) {
@@ -374,21 +414,23 @@ public class EvaluationService {
 				break;
 			}
 		}
-		
-		//Pig Latin is possible only if vowels
+
+		// Pig Latin is possible only if vowels
 		// is present
 		if (index == -1)
 			return "-1";
-		
+
 		// Take all characters after index (including
 		// index). Append all characters which are before
-		// index.  Finally append "ay"
-		
+		// index. Finally append "ay"
+
 		// Currently this doesn't pass the last test.
-		return string.substring(index) + 
-				string.substring(0, index) + "ay";
+		return string.substring(index) + string.substring(0, index) + "ay";
 		// Advised to just hard code to pass the test
 		// possibly set a test case to move the u if the last thing moved was a q?
+
+		// Break words into an array into an array of words
+		// Possibly set a test case to move the u if the last thing moved was a q?
 	}
 
 	/**
@@ -408,18 +450,24 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
-	    
-		int number = input, remainder, result = 0;
-	   input = number;
-	   
-	   while (input != 0) {
-		   remainder = input % 10;
-		   result += Math.pow(remainder, 3);
-		   input /= 10;
-	   }
-	    
-	    	return true;
-	    }
+
+		int number = input; 
+		int remainder = 0; 
+		int result = 0;
+		
+
+		while (number != 0) {
+			remainder = number % 10;
+			result += Math.pow(remainder, input.lenght);
+			input /= 10;
+		}
+		
+		if (result == number)
+      
+		return true;
+		else
+			return false;
+	}
 
 	/**
 	 * 10. Compute the prime factors of a given natural number.
@@ -450,7 +498,7 @@ public class EvaluationService {
 		// This condition is to handle the case when 
 		// l is a prime number greater than 2
 		if (l > 2)
-			return Long l;
+			return l;
 	}
 
 	/**
