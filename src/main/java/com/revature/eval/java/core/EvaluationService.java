@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -202,11 +203,11 @@ public class EvaluationService {
 			case 'Y':
 				score +=4; break;
 			//* K = 5; 
-			case 'k':
+			case 'K':
 				score +=5; break;
 			//* J, X = 8; 
-			case 'j':
-			case 'x':
+			case 'J':
+			case 'X':
 				score +=8; break;
 			//	 * Q, Z = 10;
 			case 'Q':
@@ -280,25 +281,26 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		Map<String, Integer> countByWord = new HashMap<>();
-		countByWord.
-		return null;
-	}
+	
+	
 
 	public Map<String, Integer> wordCount(String string) {
-		// Java Generics
+		// Java Generics 
 		// Map requires two type parameters.
-		// Key data type is String, key data type is Integer
+		// Key data type is String, value data type is Integer
+		// New map object created called countByWord
 		Map<String, Integer> countByWord = new HashMap<>();
-		String[] words = string.split("\\s");
+		// take the string array and split it around the blank space
+		String[] words = string.split(" ");
+		// an enhanced for loop for each value of the split string.
 		for (String word : words) {
-			boolean hasWord = countByWord.containsKey(word);
-			if (hasWord) {
-
-			} else {
-
+			boolean hasWord = countByWord.containsKey(word);//new boolean using the keyvalue to see if the word being looped 
+			//already exist in countByWord.  
+			
+			if (hasWord) {//if it does, it needs to be added to the count of the array storing those values of unique char values
+                  
+			} else { // if it does not exist, it needs to be added to a new count of that char value.
+ 
 			}
 		}
 		return countByWord;
@@ -360,23 +362,7 @@ public class EvaluationService {
 			this.sortedList = sortedList;
 		}
 
-		/*
-		 * Classmate's suggestion
-		 * 
-		 * class BinarySearch { // Returns index of x if it is present in arr[], // else
-		 * return -1 int binarySearch(int arr[], int x) { int l = 0, r = arr.length - 1;
-		 * while (l <= r) { int m = l + (r - l) / 2;
-		 * 
-		 * // Check if x is present at mid if (arr[m] == x) return m;
-		 * 
-		 * // If x greater, ignore left half if (arr[m] < x) l = m + 1;
-		 * 
-		 * // If x is smaller, ignore right half else r = m - 1; }
-		 * 
-		 * // if we reach here, then element was // not present return -1; }
-		 * 
-		 */
-
+		
 	}
 
 	/**
@@ -396,41 +382,47 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-
+    
+	
+	 // set a boolean to return true if the character is an upper or lower case vowel.
 	boolean isVowel(char c) {
 		return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a' || c == 'e' || c == 'e' || c == 'i'
 				|| c == 'u');
 
 	}
-
+     
 	public String toPigLatin(String string) {
-		// the index of the first vowel is stored.
-
-		int len = string.length();
+		
+           
+		// setting the value of the index
 		int index = -1;
-		for (int i = 0; i < len; i++) {
+		  // looping through the passed in string to test if the value is a vowel.
+		 // if it is a vowel return the value of that character
+		
+		for (int i = 0; i < string.length(); i++) {
 			if (isVowel(string.charAt(i))) {
+				//create index to store the value and a break statement to only store one value and
+				// stop the loop
+				
 				index = i;
 				break;
 			}
 		}
 
-		// Pig Latin is possible only if vowels
-		// is present
+		// check to see if the index of the triggered boolean from the loop statement
+		// is at the beginning of the phrase.  
 		if (index == -1)
-			return "-1";
+			
 
-		// Take all characters after index (including
-		// index). Append all characters which are before
-		// index. Finally append "ay"
-
-		// Currently this doesn't pass the last test.
+		
+		//return the string that was passed in with each letter shifted one
+		
+		//append the vowel that was identified at index 0 of the string to the back and add "ay"
+		
 		return string.substring(index) + string.substring(0, index) + "ay";
-		// Advised to just hard code to pass the test
-		// possibly set a test case to move the u if the last thing moved was a q?
+	
 
-		// Break words into an array into an array of words
-		// Possibly set a test case to move the u if the last thing moved was a q?
+		
 	}
 
 	/**
@@ -449,16 +441,20 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isArmstrongNumber(int input) {
-		// TODO Write an implementation for this method declaration
-
+        // bring in the value input and set it equal to the int number input
+		// create remainder to later store the value of  number % 10
+		// create the result variable to later store value in while loop
 		int number = input; 
 		int remainder = 0; 
 		int result = 0;
 		
-
+	
+		// while number isn't equal to 0, take the modulus of number and 
+		// store it in the variable remainder
+		//
 		while (number != 0) {
 			remainder = number % 10;
-			result += Math.pow(remainder, input.lenght);
+			result += Math.pow(remainder, input.length());
 			input /= 10;
 		}
 		
@@ -480,23 +476,21 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// Print the number of 2s that divide l
+		
 		while ( l % 2 == 0) {
 			System.out.print(2 + " ");
 		   l /= 2;
 		}
 		
-		// l must be odd at this point. So we can
-		// skip one element (Note i = i +2)
+		
 		for (int i = 3; i<= Math.sqrt(l); i += 2) {
-			//while i divides n, print i and divide l
+			
 		while (l % i == 0) {
 			System.out.print(i + " ");
 			l /= i;
 		}
 		}
-		// This condition is to handle the case when 
-		// l is a prime number greater than 2
+		
 		if (l > 2)
 			return l;
 	}
@@ -527,17 +521,50 @@ public class EvaluationService {
 	 * gur ynml qbt. ROT13 Gur dhvpx oebja sbk whzcf bire gur ynml qbt. gives The
 	 * quick brown fox jumps over the lazy dog.
 	 */
+	
+	
+	
+	
 	static class RotationalCipher {
-		private int key;
-
+		 // initialize a variable to store every letter in the alphabet
+		 String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		 // create a string variable to later store the values of alphabet with the added key
+		 String abcCode;
+		 //initialize key that will be set by the parent with the super();
+		 private int key;
+         
+		 //create a method that will pass in the key value from the parent,
+		 //This method should loop over the alphabet and add the key value to the char variable
+		 
 		public RotationalCipher(int key) {
 			super();
 			this.key = key;
+			//set abcCode to empty string
+			abcCode="";
+			//loop over each index value of the alphabet 
+		
+			for (int i = 0; i < 26; i ++) {
+				abcCode+= alphabet.substring(i + key);
+			}
+			
 		}
 
 		public String rotate(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			// initialize the code variable as an empty string.
+			String code = "";
+			//a for loop to 
+			for (int i = 0; i < string.length(); i++) {
+				//if else statement to test if it's upper or lower case
+				if () {
+					//if it's upper case
+					}
+				} else { // if it's lower case
+				   
+				}
+			      
+			}
+			
+			return code;
 		}
 
 	}
@@ -555,7 +582,16 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int calculateNthPrime(int i) {
-		// TODO Write an implementation for this method declaration
+		//initializing the max value
+		static int MAX = 1000005;
+		
+		//To store all prime numbers
+		ArrayList<Integer> primes =
+				new ArrayList<Integer>();
+		
+		//Function to generate N prime numbers
+		static void 
+		
 		return 0;
 	}
 
