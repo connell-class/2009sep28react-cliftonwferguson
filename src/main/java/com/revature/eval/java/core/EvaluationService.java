@@ -582,17 +582,33 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int calculateNthPrime(int i) {
-		//initializing the max value
-		static int MAX = 1000005;
+	 
+		//nthPrime is to take in the int i value and instantiate it 
+		   int nthPrime = i;
+		//instantiate a value for the while loop condition
+		   int count = 0;
+		  // while the counter is less than the passed in integer, increment the counter.
+		   while(count < nthPrime) {
+			  int num=num+1;
+		// loop over num starting at 2 because one isn't a prime number and you can't
+			  // divide by 0
+			  for (i = 2; i <= num; i ++) {
+			// test to see if modulus of of the counter num and the int i is zero, if so it's
+		    // zero than we know it's evenly divisible by two and not prime. 
+				  if (num % i == 0) {
+					  break;
+				  }
+			  }
+			  // if the value has fallen down through the loop, check if its equal to the 
+			  // value passed into the calculateNthPrime method
+			  // if so, add it to the count variable.
+		    if ( nthPrime == num ) {
+		    	count += count;
+		    }
+		   
+		   } 
 		
-		//To store all prime numbers
-		ArrayList<Integer> primes =
-				new ArrayList<Integer>();
-		
-		//Function to generate N prime numbers
-		static void 
-		
-		return 0;
+		return count;
 	}
 
 	/**
@@ -685,8 +701,38 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		
+		//Create a hash table to record the presence of a character in a string.
+		// Create a boolean with length 26
+		boolean[] present = new boolean[26];
+		//Create int variable to index through the boolean array
+		int index = 0;
+		// for loop to iterate over the string
+		for (int i = 0; i < string.length(); i++) {
+			//if the character is upper case, subtract the value of upper A to
+			// obtain the value and store it . a = 0 b=1 ect.
+			if('A' <= string.charAt(i) && string.charAt(i) <= 'Z') {
+				index = string.charAt(i) - 'A';
+			// if the string char value is a lower case letter, 
+			}else if ('a' <= string.charAt(i) && string.charAt(i) <= 'z') {
+				index = string.charAt(i) - 'a';
+			//all the indexed values of present are set to true
+			} present[index] = true;
+			//the array present is looped over again looking for any missing values
+			// if a false values is found by the absence of a letter, the sentence is not a pangram 
+			   for (int i1 = 0; i1 <= 25; i1++) {
+				   if (present[i1] == false) {
+					   return false;
+				   } else {
+					   return true;
+				   }
+			   } 
+			
+		} 
+		
+		
+		
+		
 	}
 
 	/**
