@@ -398,7 +398,7 @@ public class EvaluationService {
 	}
      
 	public String toPigLatin(String string) {
-		
+		String answer = "";
            
 		// setting the value of the index
 		int index = -1;
@@ -417,7 +417,7 @@ public class EvaluationService {
 
 		// check to see if the index of the triggered boolean from the loop statement
 		// is at the beginning of the phrase.  
-		if (index == -1) 
+		if (index == -1) {
 			
 
 		
@@ -425,11 +425,12 @@ public class EvaluationService {
 		
 		//append the vowel that was identified at index 0 of the string to the back and add "ay"
 		
-		return string.substring(index) + string.substring(0, index) + "ay";
+		answer = string.substring(index) + string.substring(0, index) + "ay";
 		
+		}
+	      
 		
-	
-
+          return answer;
 		
 	}
 
@@ -481,10 +482,14 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 * 
 	 * @param l
+	 * @return 
 	 */
-	public void calculatePrimeFactorsOf(long l) {
+	public long calculatePrimeFactorsOf(long l) {
+	   
+		long x = 2L;
 		
-	
+		return x;
+
 	}
 
 	/**
@@ -692,7 +697,7 @@ public class EvaluationService {
 	 * 
 	 * @param string
 	 */
-	public void isPangram(String string) {
+	public boolean isPangram(String string) {
 		
 		//Create a hash table to record the presence of a character in a string.
 		// Create a boolean with length 26
@@ -718,8 +723,8 @@ public class EvaluationService {
 		//		   } else {
 		//			   return true;
 		//		   }
-			   } 
-			
+			   } return true;
+		
 		} 
 		
 		
