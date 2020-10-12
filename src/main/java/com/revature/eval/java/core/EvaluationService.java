@@ -412,12 +412,12 @@ public class EvaluationService {
 				
 				index = i;
 				break;
-			}
+			} 
 		}
 
 		// check to see if the index of the triggered boolean from the loop statement
 		// is at the beginning of the phrase.  
-		if (index == -1)
+		if (index == -1) 
 			
 
 		
@@ -426,6 +426,8 @@ public class EvaluationService {
 		//append the vowel that was identified at index 0 of the string to the back and add "ay"
 		
 		return string.substring(index) + string.substring(0, index) + "ay";
+		
+		
 	
 
 		
@@ -451,7 +453,7 @@ public class EvaluationService {
 		// create remainder to later store the value of  number % 10
 		// create the result variable to later store value in while loop
 		int number = input; 
-		int remainder = 0; 
+	//	int remainder = 0; 
 		int result = 0;
 		
 	
@@ -459,8 +461,8 @@ public class EvaluationService {
 		// store it in the variable remainder
 		//
 		while (number != 0) {
-			remainder = number % 10;
-			result += Math.pow(remainder, input.length());
+	//		remainder = number % 10;
+	// comp error		result += Math.pow(remainder, input.length());
 			input /= 10;
 		}
 		
@@ -479,9 +481,8 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 * 
 	 * @param l
-	 * @return
 	 */
-	public List<Long> calculatePrimeFactorsOf(long l) {
+	public void calculatePrimeFactorsOf(long l) {
 		
 	
 	}
@@ -546,14 +547,14 @@ public class EvaluationService {
 			//a for loop to 
 			for (int i = 0; i < string.length(); i++) {
 				//if else statement to test if it's upper or lower case
-				if () {
+			//	if () {
 					//if it's upper case
 					}
-				} else { // if it's lower case
+				//} else { // if it's lower case
 				   
-				}
+		//		}
 			      
-			}
+		//	}
 			
 			return code;
 		}
@@ -580,24 +581,24 @@ public class EvaluationService {
 		   int count = 0;
 		  // while the counter is less than the passed in integer, increment the counter.
 		   while(count < nthPrime) {
-			  int num=num+1;
+		//	  int num=num+1;
 		// loop over num starting at 2 because one isn't a prime number and you can't
 			  // divide by 0
-			  for (i = 2; i <= num; i ++) {
+		//	  for (i = 2; i <= num; i ++) {
 			// test to see if modulus of of the counter num and the int i is zero, if so it's
 		    // zero than we know it's evenly divisible by two and not prime. 
-				  if (num % i == 0) {
+			//	  if (num % i == 0) {
 					  break;
 				  }
-			  }
+			 // }
 			  // if the value has fallen down through the loop, check if its equal to the 
 			  // value passed into the calculateNthPrime method
 			  // if so, add it to the count variable.
-		    if ( nthPrime == num ) {
+		  //  if ( nthPrime == num ) {
 		    	count += count;
-		    }
+		 //   }
 		   
-		   } 
+		//   } 
 		
 		return count;
 	}
@@ -690,9 +691,8 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 * 
 	 * @param string
-	 * @return
 	 */
-	public boolean isPangram(String string) {
+	public void isPangram(String string) {
 		
 		//Create a hash table to record the presence of a character in a string.
 		// Create a boolean with length 26
@@ -712,12 +712,12 @@ public class EvaluationService {
 			} present[index] = true;
 			//the array present is looped over again looking for any missing values
 			// if a false values is found by the absence of a letter, the sentence is not a pangram 
-			   for (int i1 = 0; i1 <= 25; i1++) {
-				   if (present[i1] == false) {
-					   return false;
-				   } else {
-					   return true;
-				   }
+		//	   for (int i1 = 0; i1 <= 25; i1++) {
+		//		   if (present[i1] == false) {
+		//			   return false;
+		//		   } else {
+		//			   return true;
+		//		   }
 			   } 
 			
 		} 
@@ -725,7 +725,7 @@ public class EvaluationService {
 		
 		
 		
-	}
+//	}
 
 	/**
 	 * 17. Calculate the moment when someone has lived for 10^9 seconds.
