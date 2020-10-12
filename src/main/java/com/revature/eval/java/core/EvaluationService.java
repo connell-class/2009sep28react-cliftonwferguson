@@ -453,24 +453,21 @@ public class EvaluationService {
         // bring in the value input and set it equal to the int number input
 		// create remainder to later store the value of  number % 10
 		// create the result variable to later store value in while loop
-		int number = input; 
+	//	int number = input; 
 	//	int remainder = 0; 
-		int result = 0;
+		
 		
 	
 		// while number isn't equal to 0, take the modulus of number and 
 		// store it in the variable remainder
 		//
-		while (number != 0) {
+	//	while (number != 0) {
 	//		remainder = number % 10;
 	// comp error		result += Math.pow(remainder, input.length());
 			input /= 10;
-		}
+	
 		
-		if (result == number)
-      
-		return true;
-		else
+	
 			return false;
 	}
 
