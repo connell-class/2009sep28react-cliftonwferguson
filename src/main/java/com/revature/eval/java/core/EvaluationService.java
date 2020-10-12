@@ -43,7 +43,10 @@ public class EvaluationService {
 		// 2- I will try to identify the character after the " ".
 		// 3 - I will use the pop method, to get that character,
 		// 4 - I will push that to a new array
+		
+		// Produced with Assistance
 		//
+		
 		String[] words = phrase.split("\\s");
 		System.out.println(Arrays.asList(words)); /// [ word1, word2 ....]
 		StringBuilder buffer = new StringBuilder();
@@ -254,6 +257,9 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		// Produced with Assistance. 
+		
 		String nonDigitValidChars = "() -+.";
 		StringBuilder buffer = new StringBuilder();
 		char[] newString = string.toCharArray();
@@ -477,22 +483,7 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		
-		while ( l % 2 == 0) {
-			System.out.print(2 + " ");
-		   l /= 2;
-		}
-		
-		
-		for (int i = 3; i<= Math.sqrt(l); i += 2) {
-			
-		while (l % i == 0) {
-			System.out.print(i + " ");
-			l /= i;
-		}
-		}
-		
-		if (l > 2)
-			return l;
+	
 	}
 
 	/**
@@ -762,7 +753,7 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
+		
 		return 0;
 	}
 
