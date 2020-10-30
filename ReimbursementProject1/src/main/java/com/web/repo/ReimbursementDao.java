@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,12 +33,24 @@ public class ReimbursementDao implements DaoContract<Reimbursement, Integer> {
 				 * public.ers_reimbursement_status(reimb_status_id), reimb_type_id integer
 				 * reimb_resolver integer reimb_status_id integer reimb_type_id integer
 				 */
+	   
+       Timestamp ts = rs.getTimestamp("reimb_submitted");
+       String sub = "";
+       if (ts != null) {
+    	   sub = ts.toLocalDateTime().toString().substring(0, 10);
+       }
+       Timestamp ss = rs.getTimestamp("reimb_resolved");
+       String res = "";
+       if (ss != null) {
+    	   res = ss.toLocalDateTime().toString().substring(0, 10);
+       }
 
 				reimbursement.add(new Reimbursement(rs.getInt("reimb_id"), rs.getDouble("reimb_amount"),
 						
-						rs.getTimestamp("reimb_submitted").toLocalDateTime(),
+						sub,
+						//rs.getTimestamp("reimb_submitted").toLocalDateTime(),
 						
-						rs.getTimestamp("reimb_resolved").toLocalDateTime(), rs.getString("reimb_description"),
+						res, rs.getString("reimb_description"),
 						rs.getBytes("reimb_receipt"), rs.getInt("reimb_author"), rs.getInt("reimb_resolver"),
 						rs.getInt("reimb_status_id"), rs.getInt("reimb_type_id")));
 			}

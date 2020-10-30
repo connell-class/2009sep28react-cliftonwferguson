@@ -24,8 +24,8 @@ public class Reimbursement {
 	
 	private int id;
 	private double amount;
-	private LocalDateTime submitted;
-	private LocalDateTime resolved;
+	private String submitted;
+	private String resolved;
 	private String description;
 	private byte[] receipt; 
 	
@@ -67,25 +67,25 @@ public int getId() {
 
 
 
-	public LocalDateTime getSubmitted() {
+	public String getSubmitted() {
 		return submitted;
 	}
 
 
 
-	public void setSubmitted(LocalDateTime submitted) {
+	public void setSubmitted(String submitted) {
 		this.submitted = submitted;
 	}
 
 
 
-	public LocalDateTime getResolved() {
+	public String getResolved() {
 		return resolved;
 	}
 
 
 
-	public void setResolved(LocalDateTime resolved) {
+	public void setResolved(String resolved) {
 		this.resolved = resolved;
 	}
 
@@ -221,7 +221,7 @@ public int getId() {
 
 
 
-	public Reimbursement(int id, double amount, LocalDateTime submitted, LocalDateTime resolved, String description,
+	public Reimbursement(int id, double amount, String submitted, String resolved, String description,
 			byte[] receipt, String author, String resolver, String status, String type, int author_id,
 			int resolver_id, int status_id, int type_id) {
 		super();
@@ -252,7 +252,7 @@ public int getId() {
 
 	//	 a.reimb_id, a.reimb_author, a.reimb_amount, 
 //     b.reimb_status, a.reimb_submitted, c.reimb_type 
-	public Reimbursement(int int1, String string, int int2, LocalDateTime submitted) {
+	public Reimbursement(int int1, String string, int int2, String submitted) {
 		super();
 		this.id = int1;
 		this.author = string;
@@ -267,7 +267,7 @@ public int getId() {
 
 
 
-	public Reimbursement(int int1, double double1, LocalDateTime object, LocalDateTime object2, String string,
+	public Reimbursement(int int1, double double1, String object, String object2, String string,
 			byte[] bytes, int int2, int int3, int int4, int int5) {
 		this.id = int1;
 		this.amount = double1;
